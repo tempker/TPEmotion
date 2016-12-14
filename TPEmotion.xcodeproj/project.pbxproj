@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E35E148A1E01628B00F35908 /* InputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E14891E01628B00F35908 /* InputTextField.m */; };
+		E35E148D1E0189D000F35908 /* ChatEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E148C1E0189D000F35908 /* ChatEmojiView.m */; };
 		E3BFF23F1E014A5F008A8F24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF23E1E014A5F008A8F24 /* main.m */; };
 		E3BFF2421E014A5F008A8F24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2411E014A5F008A8F24 /* AppDelegate.m */; };
 		E3BFF2451E014A5F008A8F24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2441E014A5F008A8F24 /* ViewController.m */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		E35E14881E01628B00F35908 /* InputTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTextField.h; sourceTree = "<group>"; };
 		E35E14891E01628B00F35908 /* InputTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputTextField.m; sourceTree = "<group>"; };
+		E35E148B1E0189D000F35908 /* ChatEmojiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatEmojiView.h; sourceTree = "<group>"; };
+		E35E148C1E0189D000F35908 /* ChatEmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatEmojiView.m; sourceTree = "<group>"; };
 		E3BFF23A1E014A5F008A8F24 /* TPEmotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPEmotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BFF23E1E014A5F008A8F24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3BFF2401E014A5F008A8F24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				E3BFF25B1E014A9A008A8F24 /* InputToolBar.m */,
 				E35E14881E01628B00F35908 /* InputTextField.h */,
 				E35E14891E01628B00F35908 /* InputTextField.m */,
+				E35E148B1E0189D000F35908 /* ChatEmojiView.h */,
+				E35E148C1E0189D000F35908 /* ChatEmojiView.m */,
 				E3BFF2401E014A5F008A8F24 /* AppDelegate.h */,
 				E3BFF2411E014A5F008A8F24 /* AppDelegate.m */,
 				E3BFF2431E014A5F008A8F24 /* ViewController.h */,
@@ -258,6 +263,7 @@
 				E3BFF27A1E014A9A008A8F24 /* MASConstraint.m in Sources */,
 				E3BFF27D1E014A9A008A8F24 /* MASViewAttribute.m in Sources */,
 				E3BFF2821E014A9A008A8F24 /* ViewController+MASAdditions.m in Sources */,
+				E35E148D1E0189D000F35908 /* ChatEmojiView.m in Sources */,
 				E3BFF27F1E014A9A008A8F24 /* NSArray+MASAdditions.m in Sources */,
 				E3BFF2771E014A9A008A8F24 /* ChatInputView.m in Sources */,
 				E3BFF27E1E014A9A008A8F24 /* MASViewConstraint.m in Sources */,

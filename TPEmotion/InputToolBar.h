@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "InputTextField.h"
+#import "ChatEmojiView.h"
 @interface InputToolBar : UIView 
 
 
@@ -23,6 +24,7 @@
 /** textView   */
 @property (nonatomic,strong) InputTextField *inputTextView;
 
-
+/** chatEmojiView   */
+@property (nonatomic,strong) ChatEmojiView *chatEmojiView;
 
 @end

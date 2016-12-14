@@ -22,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _toolBar = [[InputToolBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,40)];
+    _toolBar = [[InputToolBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,290)];
     
     _toolBar.backgroundColor = [UIColor grayColor];
     [self.view addSubview:_toolBar];

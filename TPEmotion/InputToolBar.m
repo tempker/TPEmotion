@@ -35,6 +35,7 @@
     
     _emoticonBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_emoticonBtn setImage:[UIImage imageNamed:@"emojiButton"] forState:UIControlStateNormal];
+    [_emoticonBtn addTarget:self action:@selector(emoticonBtnClick:) forControlEvents:UIControlEventTouchDown];
     [_emoticonBtn sizeToFit];
     [self addSubview:_emoticonBtn];
     
@@ -47,6 +48,8 @@
     _moreMediaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_moreMediaBtn setImage:[UIImage imageNamed:@"upload_add"] forState:UIControlStateNormal];
     [self addSubview:_moreMediaBtn];
+    
+    [self addSubview:self.chatEmojiView];
 }
 
 
@@ -69,7 +72,8 @@
         make.top.equalTo(self).offset(4);
         make.left.equalTo(self.emoticonBtn.mas_right).offset(2*kmagin);
         make.right.equalTo(self.moreMediaBtn.mas_left).offset(-2*kmagin);
-        make.bottom.equalTo(self).offset(-4);
+//        make.bottom.equalTo(self).offset(-4);
+        make.height.mas_equalTo(32);
     }];
     
     [_inputTextView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,6 +82,13 @@
         make.right.equalTo(self.inputTextBkgImage).offset(-12);
         make.left.equalTo(self.inputTextBkgImage).offset(12);
         
+    }];
+    
+    [_chatEmojiView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(250);
+        make.left.equalTo(self);
+        make.right.equalTo(self);
+        make.top.equalTo(self).offset(40);
     }];
 }
 
@@ -104,8 +115,10 @@
     NSDictionary*info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     [UIView animateWithDuration:0.25 animations:^{
-        self.y = [UIScreen mainScreen].bounds.size.height - kbSize.height - self.height;
+        self.y = [UIScreen mainScreen].bounds.size.height - kbSize.height - 40;
     }];
+    
+    self.chatEmojiView.hidden = YES;
 
 }
 
@@ -114,7 +127,7 @@
     
     [UIView animateWithDuration:0.3 animations:^{
         
-        self.y = [UIScreen mainScreen].bounds.size.height - self.height;
+        self.y = [UIScreen mainScreen].bounds.size.height - self.height + 250;
     }];
     
     
@@ -123,6 +136,24 @@
 -(void)textFiledEditChanged:(NSNotification *)notification{
   
     NSLog(@"正在输入");
+}
+
+
+#pragma mark - 点击事件
+-(void)emoticonBtnClick:(UIButton *)btn{
+    
+    NSLog(@"弹出表情键盘");
+    
+    [self.inputTextView resignFirstResponder];
+    //弹出表情键盘
+    _chatEmojiView.hidden = NO;
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        self.y = [UIScreen mainScreen].bounds.size.height - self.height;
+    }];
+    
+    
+    
 }
 
 
@@ -145,6 +176,21 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UITextViewTextDidChangeNotification" object:nil];
 }
+
+
+
+#pragma mark - 懒加载
+-(ChatEmojiView *)chatEmojiView{
+    
+    if (!_chatEmojiView) {
+        _chatEmojiView = [[ChatEmojiView alloc] init];
+        _chatEmojiView.backgroundColor = [UIColor yellowColor];
+        _chatEmojiView.hidden = YES;
+        
+    }
+    return _chatEmojiView;
+}
+
 
 
 /*
