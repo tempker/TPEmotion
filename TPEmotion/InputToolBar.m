@@ -8,9 +8,14 @@
 
 #import "InputToolBar.h"
 #import "Masonry.h"
+#import "UIView+Cateory.h"
 
 #define kmagin 5
-@implementation InputToolBar
+
+@interface InputToolBar () <UITextViewDelegate>
+
+@end
+@implementation InputToolBar 
 
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -18,6 +23,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        _inputTextView.delegate = self;
+        [self addTextFieldNotification];
         [self setBackgroundColor: [UIColor whiteColor]];
         [self prepareUi];
     }
@@ -27,20 +34,18 @@
 -(void)prepareUi{
     
     _emoticonBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_emoticonBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [_emoticonBtn setImage:[UIImage imageNamed:@"emojiButton"] forState:UIControlStateNormal];
     [_emoticonBtn sizeToFit];
     [self addSubview:_emoticonBtn];
     
     _inputTextBkgImage = [[UIImageView alloc]init];
-    [_inputTextBkgImage setImage:[UIImage imageNamed:@""]];
+    [_inputTextBkgImage setImage:[UIImage imageNamed:@"icon_input_text_bg"]];
     [self addSubview:_inputTextBkgImage];
     
-    _inputTextView = [[UITextField alloc]init];
-    _inputTextView.placeholder = @"请输入内容";
+    _inputTextView = [[InputTextField alloc]init];
     [self addSubview:_inputTextView];
-    
     _moreMediaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_moreMediaBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [_moreMediaBtn setImage:[UIImage imageNamed:@"upload_add"] forState:UIControlStateNormal];
     [self addSubview:_moreMediaBtn];
 }
 
@@ -49,26 +54,99 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     //布局子控件
-    
     [_emoticonBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.size.mas_equalTo(CGSizeMake(30, 30));
         make.left.equalTo(self).offset(kmagin);
         make.top.equalTo(self).offset(kmagin);
     }];
     [_moreMediaBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(50, 50));
-        make.right.equalTo(self).offset(kmagin);
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.right.equalTo(self).offset(-kmagin);
         make.top.equalTo(self).offset(kmagin);
     }];
     
     [_inputTextBkgImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(4);
+        make.left.equalTo(self.emoticonBtn.mas_right).offset(2*kmagin);
+        make.right.equalTo(self.moreMediaBtn.mas_left).offset(-2*kmagin);
+        make.bottom.equalTo(self).offset(-4);
+    }];
+    
+    [_inputTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.inputTextBkgImage).offset(1);
+        make.bottom.equalTo(self.inputTextBkgImage).offset(-1);
+        make.right.equalTo(self.inputTextBkgImage).offset(-12);
+        make.left.equalTo(self.inputTextBkgImage).offset(12);
         
-        make.top.equalTo(self).offset(kmagin);
-        make.left.equalTo(self.emoticonBtn).offset(kmagin);
-        make.right.equalTo(self.moreMediaBtn).offset(kmagin);
-        make.bottom.equalTo(self).offset(kmagin);
     }];
 }
+
+
+- (void)addTextFieldNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShowAction:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHideAction:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:)
+                                                name:@"UITextViewTextDidChangeNotification"
+                                              object:nil];
+}
+
+
+
+#pragma mark - notification
+- (void)keyboardWillShowAction:(NSNotification *)notification {
+    
+    NSDictionary*info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.y = [UIScreen mainScreen].bounds.size.height - kbSize.height - self.height;
+    }];
+
+}
+
+-(void)keyboardWillHideAction:(NSNotification*)notification{
+    
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        self.y = [UIScreen mainScreen].bounds.size.height - self.height;
+    }];
+    
+    
+}
+
+-(void)textFiledEditChanged:(NSNotification *)notification{
+  
+    NSLog(@"正在输入");
+}
+
+
+
+#pragma mark - UITextViewDelegate
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    
+    [textView becomeFirstResponder];
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    
+    [textView resignFirstResponder];
+}
+
+
+-(void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UITextViewTextDidChangeNotification" object:nil];
+}
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

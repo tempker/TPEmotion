@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E35E148A1E01628B00F35908 /* InputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E14891E01628B00F35908 /* InputTextField.m */; };
 		E3BFF23F1E014A5F008A8F24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF23E1E014A5F008A8F24 /* main.m */; };
 		E3BFF2421E014A5F008A8F24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2411E014A5F008A8F24 /* AppDelegate.m */; };
 		E3BFF2451E014A5F008A8F24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2441E014A5F008A8F24 /* ViewController.m */; };
 		E3BFF2481E014A5F008A8F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3BFF2461E014A5F008A8F24 /* Main.storyboard */; };
-		E3BFF24A1E014A5F008A8F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3BFF2491E014A5F008A8F24 /* Assets.xcassets */; };
 		E3BFF24D1E014A5F008A8F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3BFF24B1E014A5F008A8F24 /* LaunchScreen.storyboard */; };
 		E3BFF2571E014A8E008A8F24 /* UIView+Cateory.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2561E014A8E008A8F24 /* UIView+Cateory.m */; };
 		E3BFF2771E014A9A008A8F24 /* ChatInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2591E014A9A008A8F24 /* ChatInputView.m */; };
@@ -26,9 +26,12 @@
 		E3BFF2801E014A9A008A8F24 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2711E014A9A008A8F24 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		E3BFF2811E014A9A008A8F24 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2731E014A9A008A8F24 /* View+MASAdditions.m */; };
 		E3BFF2821E014A9A008A8F24 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2761E014A9A008A8F24 /* ViewController+MASAdditions.m */; };
+		E3BFF2841E0150BE008A8F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3BFF2831E0150BE008A8F24 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E35E14881E01628B00F35908 /* InputTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTextField.h; sourceTree = "<group>"; };
+		E35E14891E01628B00F35908 /* InputTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputTextField.m; sourceTree = "<group>"; };
 		E3BFF23A1E014A5F008A8F24 /* TPEmotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPEmotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BFF23E1E014A5F008A8F24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3BFF2401E014A5F008A8F24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,7 +39,6 @@
 		E3BFF2431E014A5F008A8F24 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E3BFF2441E014A5F008A8F24 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E3BFF2471E014A5F008A8F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E3BFF2491E014A5F008A8F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3BFF24C1E014A5F008A8F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3BFF24E1E014A5F008A8F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3BFF2551E014A8E008A8F24 /* UIView+Cateory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Cateory.h"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		E3BFF2741E014A9A008A8F24 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		E3BFF2751E014A9A008A8F24 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		E3BFF2761E014A9A008A8F24 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		E3BFF2831E0150BE008A8F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,13 +111,15 @@
 				E3BFF2591E014A9A008A8F24 /* ChatInputView.m */,
 				E3BFF25A1E014A9A008A8F24 /* InputToolBar.h */,
 				E3BFF25B1E014A9A008A8F24 /* InputToolBar.m */,
+				E35E14881E01628B00F35908 /* InputTextField.h */,
+				E35E14891E01628B00F35908 /* InputTextField.m */,
 				E3BFF2401E014A5F008A8F24 /* AppDelegate.h */,
 				E3BFF2411E014A5F008A8F24 /* AppDelegate.m */,
 				E3BFF2431E014A5F008A8F24 /* ViewController.h */,
 				E3BFF2441E014A5F008A8F24 /* ViewController.m */,
 				E3BFF2461E014A5F008A8F24 /* Main.storyboard */,
-				E3BFF2491E014A5F008A8F24 /* Assets.xcassets */,
 				E3BFF24B1E014A5F008A8F24 /* LaunchScreen.storyboard */,
+				E3BFF2831E0150BE008A8F24 /* Assets.xcassets */,
 				E3BFF24E1E014A5F008A8F24 /* Info.plist */,
 				E3BFF23D1E014A5F008A8F24 /* Supporting Files */,
 			);
@@ -238,7 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3BFF24D1E014A5F008A8F24 /* LaunchScreen.storyboard in Resources */,
-				E3BFF24A1E014A5F008A8F24 /* Assets.xcassets in Resources */,
+				E3BFF2841E0150BE008A8F24 /* Assets.xcassets in Resources */,
 				E3BFF2481E014A5F008A8F24 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +265,7 @@
 				E3BFF2451E014A5F008A8F24 /* ViewController.m in Sources */,
 				E3BFF2781E014A9A008A8F24 /* InputToolBar.m in Sources */,
 				E3BFF2811E014A9A008A8F24 /* View+MASAdditions.m in Sources */,
+				E35E148A1E01628B00F35908 /* InputTextField.m in Sources */,
 				E3BFF2791E014A9A008A8F24 /* MASCompositeConstraint.m in Sources */,
 				E3BFF2801E014A9A008A8F24 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E3BFF27B1E014A9A008A8F24 /* MASConstraintMaker.m in Sources */,
@@ -385,6 +391,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 53WAK344J7;
 				INFOPLIST_FILE = TPEmotion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = panda.tv.TPEmotion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,6 +404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 53WAK344J7;
 				INFOPLIST_FILE = TPEmotion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = panda.tv.TPEmotion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,6 +430,7 @@
 				E3BFF2531E014A5F008A8F24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface InputToolBar : UIView
+#import "InputTextField.h"
+@interface InputToolBar : UIView 
 
 
 /** emoticonBtn   */
@@ -21,6 +21,8 @@
 @property (nonatomic,strong) UIImageView *inputTextBkgImage;
 
 /** textView   */
-@property (nonatomic,strong) UITextField *inputTextView;
+@property (nonatomic,strong) InputTextField *inputTextView;
+
+
 
 @end
