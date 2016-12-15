@@ -9,6 +9,7 @@
 #import "ChatEmojiView.h"
 #import "Masonry.h"
 #import "UIView+Cateory.h"
+#import "ChatEmojiCollectionManager.h"
 @interface ChatEmojiView ()
 
 
@@ -30,6 +31,12 @@
 
 /** sendBtn   */
 @property (nonatomic,strong) UIButton *sendBtn;
+
+/** NSInterager   */
+@property (nonatomic,assign) NSInteger totalPage;
+
+@property(nonatomic,strong)NSMutableArray *arrayEmojiCollectionView;
+
 @end
 @implementation ChatEmojiView
 
@@ -55,7 +62,7 @@
     [self addSubview:_scrollView];
     
     _pageControl = [[UIPageControl alloc]init];
-    [_pageControl setBackgroundColor:[UIColor clearColor]];
+    [_pageControl setBackgroundColor:[UIColor blueColor]];
     [_pageControl setAutoresizesSubviews:YES];
     [_pageControl setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
     _pageControl.pageIndicatorTintColor = [UIColor grayColor];
@@ -85,31 +92,29 @@
         make.top.equalTo(self);
         make.left.equalTo(self);
         make.right.equalTo(self);
-        make.height.mas_equalTo(self.height/8*7);
+        make.height.mas_equalTo(self.height/8*6);
     }];
     
     [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.scrollView);
+        make.top.equalTo(self.scrollView.mas_bottom);
         make.left.equalTo(self);
         make.right.equalTo(self);
         make.height.mas_equalTo(self.height / 8);
     }];
     
     [_emojiClassScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.scrollView);
+        make.top.equalTo(self.pageControl.mas_bottom);
         make.left.equalTo(self);
         make.right.equalTo(self).offset(-50);
         make.height.mas_equalTo(self.height / 8);
     }];
     
     [_sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.scrollView);
-        make.left.equalTo(self.emojiClassScrollView);
+        make.top.equalTo(self.pageControl.mas_bottom);
+        make.left.equalTo(self.emojiClassScrollView.mas_right);
         make.bottom.equalTo(self);
         make.width.mas_equalTo(50);
     }];
-    
-    
 }
 
 
@@ -121,7 +126,6 @@
     NSLog(@"点击了发送按钮");
 }
 
-
 -(void)changePage:(UIPageControl *)pageControl{
     
     NSLog(@"点击了Page");
@@ -129,11 +133,27 @@
 
 
 
+-(void)addEmojiGroupView:(NSArray*)arrayChatEmojiViewItems{
+    
+    ChatEmojiCollectionManager *manager = [[ChatEmojiCollectionManager alloc]init];
+    
+    CGRect rcEmojiViewBounds = self.scrollView.bounds;
+    rcEmojiViewBounds.origin.x = self.totalPage * rcEmojiViewBounds.size.width;
+    
+    manager.collectionView.frame = rcEmojiViewBounds;
 
-
-
-
-
+    [self.scrollView addSubview:manager.collectionView];
+    
+    CGSize szScrollView = CGSizeMake(rcEmojiViewBounds.origin.x + rcEmojiViewBounds.size.width, rcEmojiViewBounds.size.height);
+    [self.scrollView setContentSize:szScrollView];
+    
+    [_arrayEmojiCollectionView addObject:manager];
+    
+    self.totalPage++;
+    
+    _pageControl.numberOfPages = self.totalPage;
+    
+}
 
 
 

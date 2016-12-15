@@ -10,4 +10,7 @@
 
 @interface ChatEmojiView : UIView
 
+-(void)addEmojiGroupView:(NSArray*)arrayChatEmojiViewItems;
+
+
 @end
