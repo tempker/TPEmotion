@@ -23,6 +23,11 @@
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {}
 
-
+#pragma mark - 公共方法
+- (NSDictionary *)dictionary {
+    NSArray *keys = @[@"type", @"chs", @"directory", @"png", @"code", @"times"];
+    
+    return [self dictionaryWithValuesForKeys:keys];
+}
 
 @end

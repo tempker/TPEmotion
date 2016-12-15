@@ -9,7 +9,7 @@
 #import "ChatEmojiView.h"
 #import "Masonry.h"
 #import "UIView+Cateory.h"
-#import "ChatEmojiCollectionManager.h"
+//#import "ChatEmojiCollectionManager.h"
 @interface ChatEmojiView ()
 
 
@@ -133,27 +133,27 @@
 
 
 
--(void)addEmojiGroupView:(NSArray*)arrayChatEmojiViewItems{
-    
-    ChatEmojiCollectionManager *manager = [[ChatEmojiCollectionManager alloc]init];
-    
-    CGRect rcEmojiViewBounds = self.scrollView.bounds;
-    rcEmojiViewBounds.origin.x = self.totalPage * rcEmojiViewBounds.size.width;
-    
-    manager.collectionView.frame = rcEmojiViewBounds;
-
-    [self.scrollView addSubview:manager.collectionView];
-    
-    CGSize szScrollView = CGSizeMake(rcEmojiViewBounds.origin.x + rcEmojiViewBounds.size.width, rcEmojiViewBounds.size.height);
-    [self.scrollView setContentSize:szScrollView];
-    
-    [_arrayEmojiCollectionView addObject:manager];
-    
-    self.totalPage++;
-    
-    _pageControl.numberOfPages = self.totalPage;
-    
-}
+//-(void)addEmojiGroupView:(NSArray*)arrayChatEmojiViewItems{
+//    
+//    ChatEmojiCollectionManager *manager = [[ChatEmojiCollectionManager alloc]init];
+//    
+//    CGRect rcEmojiViewBounds = self.scrollView.bounds;
+//    rcEmojiViewBounds.origin.x = self.totalPage * rcEmojiViewBounds.size.width;
+//    
+//    manager.collectionView.frame = rcEmojiViewBounds;
+//
+//    [self.scrollView addSubview:manager.collectionView];
+//    
+//    CGSize szScrollView = CGSizeMake(rcEmojiViewBounds.origin.x + rcEmojiViewBounds.size.width, rcEmojiViewBounds.size.height);
+//    [self.scrollView setContentSize:szScrollView];
+//    
+//    [_arrayEmojiCollectionView addObject:manager];
+//    
+//    self.totalPage++;
+//    
+//    _pageControl.numberOfPages = self.totalPage;
+//    
+//}
 
 
 

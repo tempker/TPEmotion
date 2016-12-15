@@ -45,6 +45,8 @@
     for (NSDictionary *dict in emotionPackages) {
         
         //包表情包装进_packages 里面  字典转模型
+        [_packages addObject:[TPEmotionPackage packageWithDict:dict]];
+        
         
     }
 }

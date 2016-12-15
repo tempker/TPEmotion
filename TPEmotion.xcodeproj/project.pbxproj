@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E35E14901E02324B00F35908 /* ChatEmojiCollectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E148F1E02324B00F35908 /* ChatEmojiCollectionManager.m */; };
 		E35E14A61E02751C00F35908 /* ChatEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E149D1E02751C00F35908 /* ChatEmojiView.m */; };
 		E35E14A71E02751C00F35908 /* ChatInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E149F1E02751C00F35908 /* ChatInputView.m */; };
 		E35E14A81E02751C00F35908 /* EmojiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E14A11E02751C00F35908 /* EmojiCollectionViewCell.m */; };
@@ -17,6 +16,9 @@
 		E35E14B51E027AAF00F35908 /* NSBundle+TPEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E14B41E027AAF00F35908 /* NSBundle+TPEmotion.m */; };
 		E35E14B81E027E2A00F35908 /* TPEmotionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E14B71E027E2A00F35908 /* TPEmotionPackage.m */; };
 		E35E14BB1E0280CC00F35908 /* TPEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E14BA1E0280CC00F35908 /* TPEmotion.m */; };
+		E35E14BE1E028DF300F35908 /* TPEmotionInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E14BD1E028DF300F35908 /* TPEmotionInputView.m */; };
+		E35E14C11E02D86C00F35908 /* TPEmotionToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E14C01E02D86C00F35908 /* TPEmotionToolBar.m */; };
+		E35E14C71E02DFE800F35908 /* UIImage+TPEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = E35E14C61E02DFE800F35908 /* UIImage+TPEmotion.m */; };
 		E3BFF23F1E014A5F008A8F24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF23E1E014A5F008A8F24 /* main.m */; };
 		E3BFF2421E014A5F008A8F24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2411E014A5F008A8F24 /* AppDelegate.m */; };
 		E3BFF2451E014A5F008A8F24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BFF2441E014A5F008A8F24 /* ViewController.m */; };
@@ -37,8 +39,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E35E148E1E02324B00F35908 /* ChatEmojiCollectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatEmojiCollectionManager.h; sourceTree = "<group>"; };
-		E35E148F1E02324B00F35908 /* ChatEmojiCollectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatEmojiCollectionManager.m; sourceTree = "<group>"; };
 		E35E149C1E02751C00F35908 /* ChatEmojiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatEmojiView.h; sourceTree = "<group>"; };
 		E35E149D1E02751C00F35908 /* ChatEmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatEmojiView.m; sourceTree = "<group>"; };
 		E35E149E1E02751C00F35908 /* ChatInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInputView.h; sourceTree = "<group>"; };
@@ -57,6 +57,12 @@
 		E35E14B71E027E2A00F35908 /* TPEmotionPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEmotionPackage.m; sourceTree = "<group>"; };
 		E35E14B91E0280CC00F35908 /* TPEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEmotion.h; sourceTree = "<group>"; };
 		E35E14BA1E0280CC00F35908 /* TPEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEmotion.m; sourceTree = "<group>"; };
+		E35E14BC1E028DF300F35908 /* TPEmotionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEmotionInputView.h; sourceTree = "<group>"; };
+		E35E14BD1E028DF300F35908 /* TPEmotionInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEmotionInputView.m; sourceTree = "<group>"; };
+		E35E14BF1E02D86C00F35908 /* TPEmotionToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEmotionToolBar.h; sourceTree = "<group>"; };
+		E35E14C01E02D86C00F35908 /* TPEmotionToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEmotionToolBar.m; sourceTree = "<group>"; };
+		E35E14C51E02DFE800F35908 /* UIImage+TPEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TPEmotion.h"; sourceTree = "<group>"; };
+		E35E14C61E02DFE800F35908 /* UIImage+TPEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TPEmotion.m"; sourceTree = "<group>"; };
 		E3BFF23A1E014A5F008A8F24 /* TPEmotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPEmotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BFF23E1E014A5F008A8F24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3BFF2401E014A5F008A8F24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -142,6 +148,10 @@
 		E35E149B1E02751C00F35908 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E35E14BC1E028DF300F35908 /* TPEmotionInputView.h */,
+				E35E14BD1E028DF300F35908 /* TPEmotionInputView.m */,
+				E35E14BF1E02D86C00F35908 /* TPEmotionToolBar.h */,
+				E35E14C01E02D86C00F35908 /* TPEmotionToolBar.m */,
 				E35E149C1E02751C00F35908 /* ChatEmojiView.h */,
 				E35E149D1E02751C00F35908 /* ChatEmojiView.m */,
 				E35E149E1E02751C00F35908 /* ChatInputView.h */,
@@ -182,8 +192,6 @@
 				E35E149B1E02751C00F35908 /* Views */,
 				E3BFF2541E014A8E008A8F24 /* Category */,
 				E3BFF25C1E014A9A008A8F24 /* lib */,
-				E35E148E1E02324B00F35908 /* ChatEmojiCollectionManager.h */,
-				E35E148F1E02324B00F35908 /* ChatEmojiCollectionManager.m */,
 				E35E14AE1E02762E00F35908 /* TPEmotionToolManager.h */,
 				E35E14AF1E02762E00F35908 /* TPEmotionToolManager.m */,
 				E3BFF2401E014A5F008A8F24 /* AppDelegate.h */,
@@ -214,6 +222,8 @@
 				E35E14B41E027AAF00F35908 /* NSBundle+TPEmotion.m */,
 				E3BFF2551E014A8E008A8F24 /* UIView+Cateory.h */,
 				E3BFF2561E014A8E008A8F24 /* UIView+Cateory.m */,
+				E35E14C51E02DFE800F35908 /* UIImage+TPEmotion.h */,
+				E35E14C61E02DFE800F35908 /* UIImage+TPEmotion.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -343,17 +353,19 @@
 				E3BFF2451E014A5F008A8F24 /* ViewController.m in Sources */,
 				E35E14B51E027AAF00F35908 /* NSBundle+TPEmotion.m in Sources */,
 				E35E14AA1E02751C00F35908 /* InputToolBar.m in Sources */,
+				E35E14C71E02DFE800F35908 /* UIImage+TPEmotion.m in Sources */,
 				E35E14BB1E0280CC00F35908 /* TPEmotion.m in Sources */,
 				E3BFF2811E014A9A008A8F24 /* View+MASAdditions.m in Sources */,
 				E3BFF2791E014A9A008A8F24 /* MASCompositeConstraint.m in Sources */,
 				E3BFF2801E014A9A008A8F24 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				E35E14901E02324B00F35908 /* ChatEmojiCollectionManager.m in Sources */,
+				E35E14BE1E028DF300F35908 /* TPEmotionInputView.m in Sources */,
 				E35E14A71E02751C00F35908 /* ChatInputView.m in Sources */,
 				E3BFF27B1E014A9A008A8F24 /* MASConstraintMaker.m in Sources */,
 				E35E14A91E02751C00F35908 /* InputTextField.m in Sources */,
 				E3BFF2421E014A5F008A8F24 /* AppDelegate.m in Sources */,
 				E3BFF2571E014A8E008A8F24 /* UIView+Cateory.m in Sources */,
 				E3BFF23F1E014A5F008A8F24 /* main.m in Sources */,
+				E35E14C11E02D86C00F35908 /* TPEmotionToolBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

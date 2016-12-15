@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TPEmotionPackage.h"
 ///表情工具类-------提供所有数据及处理逻辑
 
 @interface TPEmotionToolManager : NSObject
@@ -17,7 +18,7 @@
 
 
 /** 表情包数组   */
-@property (nonatomic,strong,nonnull ) NSMutableArray *packages;
+@property (nonatomic,strong,nonnull ) NSMutableArray <TPEmotionPackage *>*packages;
 
 
 
