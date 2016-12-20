@@ -23,7 +23,7 @@
         //创建表情包数组
         _emoticonsList = [[NSMutableArray alloc]init];
         
-        if (!dict) {
+        if (dict != nil) {
             NSString *fileName = [NSString stringWithFormat:@"%@/info.plist", _directory];
             NSString *path = [[NSBundle tp_emotionBundle] pathForResource:fileName ofType:nil];
             NSArray *array = [NSArray arrayWithContentsOfFile:path];

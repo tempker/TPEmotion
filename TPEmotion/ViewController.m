@@ -7,13 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "InputToolBar.h"
 #import "UIView+Cateory.h"
+#import "TPEmotionInputView.h"
+@class TPEmotion;
 @interface ViewController ()
+{
+    TPEmotionInputView *_emotionInputView;
+    
+}
 
-
-/** ToolBar   */
-@property (nonatomic,strong) InputToolBar *toolBar;
 @end
 
 @implementation ViewController
@@ -21,24 +23,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    _toolBar = [[InputToolBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,290)];
-    
-    _toolBar.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:_toolBar];
+
+    [self prepareUI];
+    _emotionInputView.y = 100;
+    [self.view addSubview:_emotionInputView];
 }
 
--(void)viewWillLayoutSubviews{
+-(void)prepareUI{
     
-    _toolBar.y = self.view.height - 40;
+    __weak typeof (self) weakSelf = self;
+    
+  _emotionInputView = [[TPEmotionInputView alloc] initWitSelectedEmotion:^(TPEmotion *emotion, BOOL isRemoved) {
+      
+      [weakSelf insertEmoticon:emotion isRemoved:isRemoved];
+    }];
+    
 }
 
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)insertEmoticon:(TPEmotion *)emoticon isRemoved:(BOOL)isRemoved {
     
-    [self.toolBar.inputTextView resignFirstResponder];
+    
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

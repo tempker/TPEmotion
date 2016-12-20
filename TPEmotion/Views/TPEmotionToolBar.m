@@ -72,6 +72,15 @@ static NSInteger TPEmotinToolBarButtonValue = 1000;
     }
 }
 
+#pragma mark - 公共方法
+- (void)selectSection:(NSInteger)section {
+    UIButton *button = [self viewWithTag:(section + TPEmotinToolBarButtonValue)];
+    
+    [self selectedButtonWithButton:button];
+}
+
+
+
 
 #pragma mark - self prepareUI
 
@@ -107,6 +116,13 @@ static NSInteger TPEmotinToolBarButtonValue = 1000;
 }
 
 
+#pragma mark - 监听点击事件
+/// 将指定的按钮设置为选中按钮
+- (void)selectedButtonWithButton:(UIButton *)button {
+    button.selected = !button.selected;
+    _selectBtn.selected = !_selectBtn.selected;
+    _selectBtn = button;
+}
 
 -(void)btnClick:(UIButton*)button{
     
@@ -123,7 +139,6 @@ static NSInteger TPEmotinToolBarButtonValue = 1000;
     }
     
 }
-
 
 
 #pragma mark - 懒加载

@@ -27,5 +27,10 @@
 /** delegate   */
 @property (nonatomic,weak) id<TPEmotionToolBarDelegate> delegate;
 
+/// 选中指定分组
+///
+/// @param section 分组
+- (void)selectSection:(NSInteger)section;
+
 
 @end

@@ -12,6 +12,23 @@
 
 
 
+- (NSString *)imagePath {
+    
+    if (_type == 1) {
+        return nil;
+    }
+    
+    return [NSString stringWithFormat:@"%@/%@", _directory, _png];
+}
+
+//- (void)setCode:(NSString *)code {
+//    _emoji = code.hm_emoji;
+//}
+
+- (BOOL)isEmoji {
+    return _emoji != nil;
+}
+
 #pragma mark - 构造函数
 + (instancetype)emoticonWithDict:(NSDictionary *)dict {
     id obj = [[self alloc] init];

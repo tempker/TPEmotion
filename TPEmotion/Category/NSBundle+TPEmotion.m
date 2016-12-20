@@ -10,12 +10,11 @@
 #import "ChatEmojiView.h"
 
 
-NSString *const TPEmotionBundleName = @"HMEmoticon.bundle";
+NSString *const TPEmotionBundleName = @"TPEmoticon.bundle";
 @implementation NSBundle (TPEmotion)
 
 +(nonnull instancetype)tp_emotionBundle{
     
-    //为什么不用......
     NSBundle *bundle = [NSBundle bundleForClass:[ChatEmojiView class]];
     NSString *bundlePath = [bundle pathForResource:TPEmotionBundleName ofType:nil];
     

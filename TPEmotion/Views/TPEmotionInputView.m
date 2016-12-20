@@ -9,6 +9,8 @@
 #import "TPEmotionInputView.h"
 #import "TPEmotionToolBar.h"
 #import "UIImage+TPEmotion.h"
+#import "TPEmotionCell.h"
+
 @interface TPEmotionInputViewLayout : UICollectionViewFlowLayout
 
 @end
@@ -32,7 +34,7 @@
 @end
 
 
-@interface TPEmotionInputView () <UICollectionViewDelegate,UICollectionViewDataSource,TPEmotionToolBarDelegate>
+@interface TPEmotionInputView () <UICollectionViewDelegate,UICollectionViewDataSource,TPEmotionToolBarDelegate,TPEmotionCellDlegate>
 {
     UICollectionView *_collectionView;
     TPEmotionToolBar *_toolBar;
@@ -51,13 +53,77 @@
 
     self = [super initWithFrame:frame];
     if (self) {
+        
+        self.backgroundColor = [UIColor redColor];
         _selectEmotionCallBack = selectEmotionBlock;
         [self prePareUI];
         
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:1];
+        [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+        //更新pageControl
+        
+        
+        [_toolBar selectSection:indexPath.section];
+    }
+    return self;
+}
+
+
+
+#pragma mark - UICollectionViewDelegate UICollectionViewDataSource
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    
+    return [[TPEmotionToolManager shareManager] packages].count;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+    return [[TPEmotionToolManager shareManager] numberPageInSection:section];
+    
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    TPEmotionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[TPEmotionCell reuseID] forIndexPath:indexPath];
+    
+    cell.emotions = [[TPEmotionToolManager shareManager] emoticonsWithIndexPath:indexPath];
+    cell.delegate = self;
+    return cell;
+}
+
+
+#pragma mark - TPEmoticonCellDelegate
+-(void)emotionCellDidSellectedEmotion:(TPEmotion *)emotion isRemoved:(BOOL)isRemoved{
+    if (_selectEmotionCallBack != nil) {
+        _selectEmotionCallBack(emotion,isRemoved);
     }
     
+    //TODO: 添加最近使用的表情
+}
+
+#pragma mark - UIScrollView Delegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGPoint center = scrollView.center;
+    center.x += scrollView.contentOffset.x;
     
-    return self;
+    NSArray *indexPaths = [_collectionView indexPathsForVisibleItems];
+    
+    NSIndexPath *targetPath = nil;
+    for (NSIndexPath *indexPath in indexPaths) {
+        UICollectionViewCell *cell = [_collectionView cellForItemAtIndexPath:indexPath];
+        
+        if (CGRectContainsPoint(cell.frame, center)) {
+            targetPath = indexPath;
+            break;
+        }
+    }
+    
+    if (targetPath != nil) {
+//        [self updatePageControlWithIndexPath:targetPath];
+        [_toolBar selectSection:targetPath.section];
+    }
+
 }
 
 
@@ -90,13 +156,25 @@
     [self addSubview:_collectionView];
     
     //设置collectionView
-    
+    _collectionView.backgroundColor = [UIColor clearColor];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    [_collectionView registerClass:[TPEmotionCell class] forCellWithReuseIdentifier:[TPEmotionCell reuseID]];
     
     //设置pageControl
+    _pageControl = [[UIPageControl alloc]init];
+    [self addSubview:_pageControl];
     
+    _pageControl.hidesForSinglePage = YES;
+    _pageControl.userInteractionEnabled = NO;
+    [_pageControl setValue:[UIImage tp_imageWithName:@"compose_keyboard_dot_selected"] forKey:@"_currentPageImage"];
+    [_pageControl setValue:[UIImage tp_imageWithName:@"compose_keyboard_dot_normal"] forKey:@"pageImage"];
     
     //布局
+    _pageControl.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:_pageControl attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
     
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:_toolBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_toolBar attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
     
 }
 
